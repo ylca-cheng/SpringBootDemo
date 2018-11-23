@@ -2,6 +2,7 @@ package com.cheng.SpringBootDemo.controller;
 
 import com.cheng.SpringBootDemo.domain.User;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -18,10 +19,10 @@ public class HelloController {
     }
 
     @RequestMapping("/user")
-    public User getUser(){
+    public User getUser(@RequestParam(value = "form-password") String password,@RequestParam(value = "form-username") String username){
         User user = new User();
-        user.setUserName("abc");
-        user.setPassword("123456");
+        user.setUserName(username);
+        user.setPassword(password);
         return user;
     }
 }
