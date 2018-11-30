@@ -1162,7 +1162,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 				i = 0,
 				results = context.getElementsByTagName( tag );
 
-			// Filter out possible comments
+			// filter out possible comments
 			if ( tag === "*" ) {
 				while ( (elem = results[i++]) ) {
 					if ( elem.nodeType === 1 ) {
@@ -9666,7 +9666,7 @@ if ( xhrSupported ) {
 									statusText = "";
 								}
 
-								// Filter status for non standard behaviors
+								// filter status for non standard behaviors
 
 								// If the request is local and we have data: assume a success
 								// (success with no data won't get notified, that's the best we
