@@ -103,9 +103,9 @@
 		transitionDuration: 2500,
 		delay: 5000,
     	slides: [
-       	{ src: "error/images/slides/woods.jpg" },
-        	{ src: "error/images/slides/greens.jpg" },
-        	{ src: "error/images/slides/dandelion.jpg" }
+       	{ src: "images/slides/woods.jpg" },
+        	{ src: "images/slides/greens.jpg" },
+        	{ src: "images/slides/dandelion.jpg" }
     	]
 	});
 
