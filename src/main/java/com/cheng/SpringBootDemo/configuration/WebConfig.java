@@ -15,10 +15,7 @@ import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,11 +34,13 @@ public class WebConfig implements WebMvcConfigurer{
 
     /**
      * 注册拦截器
+     * 自定义拦截器需要实现WebMvcConfigurer接口
+     * addPathPatterns为URL拦截路径,默认全部拦截
      * @param registry
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(timeInterceptor);
+        registry.addInterceptor(timeInterceptor).addPathPatterns("/**");
     }
 
     @Bean
@@ -94,4 +93,9 @@ public class WebConfig implements WebMvcConfigurer{
     public ServletListenerRegistrationBean<ListenerTest> servletListenerRegistrationBean() {
         return new ServletListenerRegistrationBean<ListenerTest>(new ListenerTest());
     }*/
+
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/fastjson/**").allowedOrigins("http://127.0.0.1:8020");
+    }
 }

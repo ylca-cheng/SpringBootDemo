@@ -25,7 +25,6 @@ public class FastJsonController {
         user.setPassword("jack123");
         user.setBirth(new Date());
 
-        int i = 1/0;
         return user;
     }
 }
