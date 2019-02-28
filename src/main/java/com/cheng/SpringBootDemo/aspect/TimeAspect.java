@@ -31,7 +31,7 @@ public class TimeAspect {
         // 记录下请求内容
         logger.info("URL : " + request.getRequestURL().toString());
         logger.info("ARGS : " + Arrays.toString(joinPoint.getArgs()));
-        logger.info("url:"+request.getRequestURI());
+        logger.info("uri:"+request.getRequestURI());
         logger.info("ip:"+request.getRemoteAddr());
         logger.info("method:{}",request.getMethod());
         logger.info("类_方法:{}",joinPoint.getSignature().getDeclaringTypeName()+"."+joinPoint.getSignature().getName());

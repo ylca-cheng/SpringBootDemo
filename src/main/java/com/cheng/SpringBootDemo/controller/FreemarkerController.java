@@ -15,6 +15,6 @@ public class FreemarkerController {
     public String hello(Map<String,Object> map) {
 
         map.put("msg", "Hello Freemarker");
-        return "hello";
+        return "freemarker";
     }
 }

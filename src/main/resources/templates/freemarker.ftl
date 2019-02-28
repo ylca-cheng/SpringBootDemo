@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>freemarker</title>
     <#--<link href="/css/index.css" rel="stylesheet"/>-->
 </head>
 <body>
