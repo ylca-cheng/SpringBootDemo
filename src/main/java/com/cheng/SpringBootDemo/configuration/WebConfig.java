@@ -37,6 +37,10 @@ public class WebConfig implements WebMvcConfigurer{
         registry.addInterceptor(timeInterceptor).addPathPatterns("/**");
     }
 
+    /**
+     * 使用fastjson将对象转为json
+     * @return
+     */
     @Bean
     public HttpMessageConverters fastJsonHttpMessageConverters() {
         FastJsonHttpMessageConverter fastJsonHttpMessageConverter = new FastJsonHttpMessageConverter();
