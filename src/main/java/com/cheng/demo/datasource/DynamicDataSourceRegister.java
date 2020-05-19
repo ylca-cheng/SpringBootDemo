@@ -23,6 +23,7 @@ import org.springframework.core.type.AnnotationMetadata;
 import org.springframework.util.StringUtils;
 
 import javax.sql.DataSource;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -75,9 +76,9 @@ public class DynamicDataSourceRegister  implements ImportBeanDefinitionRegistrar
     public void registerBeanDefinitions(AnnotationMetadata annotationMetadata, BeanDefinitionRegistry beanDefinitionRegistry) {
         // 获取所有数据源配置
         Map config, defauleDataSourceProperties;
-        defauleDataSourceProperties = binder.bind("spring.datasource.master", Map.class).get();
+        defauleDataSourceProperties = binder.bind("spring.datasource", Map.class).get();
         // 获取数据源类型
-        String typeStr = evn.getProperty("spring.datasource.master.type");
+        String typeStr = evn.getProperty("spring.datasource.type");
         // 获取数据源类型
         Class<? extends DataSource> clazz = getDataSourceType(typeStr);
         // 绑定默认数据源参数 也就是主数据源
@@ -85,7 +86,12 @@ public class DynamicDataSourceRegister  implements ImportBeanDefinitionRegistrar
         DynamicDataSourceContextHolder.dataSourceIds.add("master");
         logger.info("注册默认数据源成功");
         // 获取其他数据源配置
-        List<Map> configs = binder.bind("spring.datasource.cluster", Bindable.listOf(Map.class)).get();
+//        List<Map> configs = binder.bind("custom.datasource.ds1", Bindable.listOf(Map.class)).get();
+        List<Map> configs=new ArrayList<>();
+        config = binder.bind("custom.datasource.ds1", Map.class).get();
+        configs.add(config);
+        config = binder.bind("custom.datasource.ds2", Map.class).get();
+        configs.add(config);
         // 遍历从数据源
         for (int i = 0; i < configs.size(); i++) {
             config = configs.get(i);

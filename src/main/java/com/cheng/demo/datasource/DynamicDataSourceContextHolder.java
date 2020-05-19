@@ -21,18 +21,18 @@ public class DynamicDataSourceContextHolder {
     static List<String> dataSourceIds = new ArrayList<String>();
 
     /**
-     * 使用setDataSourceType设置当前的
-     * @param dataSourceType 数据类型
+     * 使用setDataSourceKey设置当前的
+     * @param dataSourceKey 数据类型
      */
-    static void setDataSourceType(String dataSourceType) {
-        contextHolder.set(dataSourceType);
+    static void setDataSourceKey(String dataSourceKey) {
+        contextHolder.set(dataSourceKey);
     }
 
-    static String getDataSourceType() {
+    static String getDataSourceKey() {
         return contextHolder.get();
     }
 
-    static void clearDataSourceType() {
+    static void clearDataSourceKey() {
         contextHolder.remove();
     }
 

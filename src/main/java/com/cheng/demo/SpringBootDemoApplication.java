@@ -1,11 +1,14 @@
 package com.cheng.demo;
 
 import com.cheng.demo.controller.ServletTest;
+import com.cheng.demo.datasource.DynamicDataSourceRegister;
 import com.cheng.demo.filter.TimeFilter;
 import com.cheng.demo.listener.ListenerTest;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletContextInitializer;
+import org.springframework.context.annotation.Import;
 
 import javax.servlet.DispatcherType;
 import javax.servlet.ServletContext;
@@ -13,6 +16,8 @@ import javax.servlet.ServletException;
 import java.util.EnumSet;
 
 @SpringBootApplication
+@MapperScan("com.cheng.demo.dao")
+@Import(DynamicDataSourceRegister.class)
 public class SpringBootDemoApplication implements ServletContextInitializer{
 
     /**

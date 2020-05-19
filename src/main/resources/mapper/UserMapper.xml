@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cheng.demo.dao.UserDao">
+
+    <select id="findAllUsers" resultType="com.cheng.demo.domain.User">
+        select userName,passWord PassWord from t_user
+    </select>
+
+    <select id="findUserById" resultType="com.cheng.demo.domain.User" parameterType="int">
+        select userName,passWord PassWord from t_user where id = #{id,jdbcType=INTEGER}
+    </select>
+</mapper>
